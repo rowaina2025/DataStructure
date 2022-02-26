@@ -89,5 +89,60 @@ public class Calculator implements ICalculator{
     }
 }
 
-  
+///METHOD 3
+
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+interface ICalculator {
+    /**
+    * Adds given two numbers
+    * @param x first number
+    * @param y second number
+    * @return the sum of the two numbers
+    */
+    int add(int x, int y);
+    /**
+    * Divides two numbers
+    * @param x first number
+    * @param y second number
+    * @return the division result
+    */
+    float divide(int x, int y) throws RuntimeException;
+}
+
+
+public class Calculator implements ICalculator{
+     public int add(int x, int y){
+        int z = x+y;
+        return z;
+    }
+     public float divide(int x, int y){
+         try{
+            float z = x*100/ y;
+            z /= 100;
+            return z;
+         }
+         catch (RuntimeException e){
+             System.out.println("Error");
+              System.exit(0);
+             return 0;
+         }
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        char op = sc.next().charAt(0);
+        int y = sc.nextInt();
+        Calculator operation = new Calculator();
+        switch(op){
+         case '+': {int sum = operation.add(x,y); System.out.println(sum); break;} 
+         case '/': {float div = operation.divide(x,y); System.out.println(div); break;}  
+        }
+    }
+}
+
+
 
