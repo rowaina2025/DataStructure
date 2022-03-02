@@ -132,26 +132,19 @@ import java.math.*;
 import java.util.regex.*;
 
 public class Solution {
+	
 	public int[] moveValue(int[] array, int value) {
         int[] result = new int[array.length];
         int i= 0,last = 1,j = 0;
         while(i<array.length){
-            if(array[i]==value){
-                result[array.length-last] = array[i];
-                last++;
-                i++;
-            }
-            else{
-                result[j] = array[i];
-                i++;
-                j++;
-            }
-        }
-    	/*
-        	Implement your method here
-        */
+            if(array[i]==value)
+                result[array.length-last++] = array[i++];
+            else
+                result[j++] = array[i++];
+	}
         return result;
     }
+	
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */      
         Scanner sc = new Scanner(System.in);
